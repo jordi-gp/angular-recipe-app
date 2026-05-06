@@ -1,20 +1,24 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecipeCardComponent } from '../recipe-card-component/recipe-card-component';
+import { NavComponent } from '../../shared/nav-component/nav-component';
+import { FooterComponent } from '../../shared/footer-component/footer-component';
+import { RecipeCardComponent } from '../../components/recipe-card-component/recipe-card-component';
 import { Difficulty } from '../../models/difficulty.model';
 import { Recipe } from '../../models/recipe.model';
 
 @Component({
-  selector: 'app-main-page-component',
+  selector: 'app-main-page',
   standalone: true,
   imports: [
     CommonModule,
+    NavComponent,
+    FooterComponent,
     RecipeCardComponent
   ],
-  templateUrl: './main-page-component.html',
-  styleUrl: './main-page-component.css',
+  templateUrl: './main-page.html',
+  styleUrl: './main-page.css',
 })
-export class MainPageComponent {
+export class MainPage {
   difficulties: Difficulty[] = [
     { id: 1, name: 'Fácil' },
     { id: 2, name: 'Medio' },
