@@ -8,3 +8,8 @@ export interface User {
     password: String;
     role: Role;
 }
+
+export interface LoginUser {
+    name: String,
+    email: String
+}

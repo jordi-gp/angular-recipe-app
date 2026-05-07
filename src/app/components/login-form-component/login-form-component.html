@@ -1,15 +1,32 @@
 <div class="form-container">
     <h1>Login</h1>
-    <form (ngSubmit)="login()">
-        <mat-form-field appearance="fill">
-        <mat-label>Correo Electrónico</mat-label>
-        <input matInput type="email" [(ngModel)]="email" name="email" required>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-        <mat-label>Contraseña</mat-label>
-        <input matInput type="password" [(ngModel)]="password" name="password" required>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="m-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                [class.is-invalid]="form['email'].dirty && form['email'].invalid"
+                [class.is-valid]="form['email'].dirty && form['email'].valid"
+                placeholder="name@example.com" />
+        </div>
+        <div class="error-message" *ngIf="form['email'].dirty && form['email'].invalid">
+            {{ getErrorMessage('email') }}
+        </div>
+        <div class="m-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password"
+                class="form-control"
+                id="password"
+                formControlName="password"
+                [class.is-invalid]="form['password'].dirty && form['password'].invalid"
+                [class.is-valid]="form['password'].dirty && form['password'].valid"/>
+        </div>
+        <div class="error-message" *ngIf="form['password'].dirty && form['password'].invalid">
+            {{ getErrorMessage('password') }}
+        </div>
+        <button class="btn btn-primary mx-3">Login</button>
     </form>
 </div>
+
