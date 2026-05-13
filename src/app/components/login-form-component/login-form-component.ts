@@ -16,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     CommonModule,
     ReactiveFormsModule
-    //JsonPipe
   ],
   templateUrl: './login-form-component.html',
   styleUrl: './login-form-component.css',
